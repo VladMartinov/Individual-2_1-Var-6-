@@ -5,18 +5,15 @@ namespace Table
 {
     public class OOP
     {
-        public enum Type
-        {
-            Z, B
-        }
-        public class Item
+        
+        public struct Item
         {
             public String ItemName;
-            public Type ItemType;
+            public String ItemType;
             public int ploh;
             public int uroz;
 
-            public Item(string ItemName, Type ItemType,int ploh, int uroz)
+            public Item(string ItemName, String ItemType,int ploh, int uroz)
             {
                 this.ItemName = ItemName;
                 this.ItemType = ItemType;
@@ -36,10 +33,7 @@ namespace Table
         {
             ArrayList list = new();
 
-            /* Item a = new ("Папка", Type.K, 4.75, 400);
-             Item b = new("Калькулятор", Type.O, 411, 10);
-             a.Print();
-             b.Print();*/
+            
             bool flag = true;
             while (flag)
             {
@@ -48,24 +42,8 @@ namespace Table
                 Console.WriteLine("Наименование:");
                 string name = Console.ReadLine();
 
-                Type ItemType;
-                while (true)
-                {
-                    Console.WriteLine("Тип товара(Z, B):");
-                    string tmp = Console.ReadLine();
-                    if (tmp == "Z" || tmp == "Z") 
-                    {
-                        ItemType = Type.Z;
-                        break;
-                    }
-                    else if (tmp == "B" || tmp == "B") 
-                    {
-                        ItemType = Type.B;
-                        break;
-                    }
-                    else Console.WriteLine("Некорректный ввод значения. Введите еще раз.");
-
-                }
+                Console.WriteLine("Тип растения (З-Зерновой, Б-Бобовые");
+                string ItemType = Console.ReadLine();
 
                 Console.WriteLine("Площадь посева (га)");
                 int ploh = Int32.Parse(Console.ReadLine());
@@ -76,7 +54,7 @@ namespace Table
                 list.Add(value);
                 while (true)
                 {
-                    Console.WriteLine("Добавить еще элементы в таблицу?\nда - продолжить\nнет - вывод таблицы");
+                    Console.WriteLine("Добавить строку?\nда - продолжить\nнет - вывод таблицы");
                     string input = Console.ReadLine();
                     if (input == "да" || input == "нет")
                     {
@@ -106,4 +84,4 @@ namespace Table
         }
 
     }
-}
+} 
